@@ -1,4 +1,9 @@
 package com.example.d2_p1.navigation
 
-class Route {
+
+
+
+object Routes {
+   const val createSpaceScreen = "Space_Screen"
+
 }
