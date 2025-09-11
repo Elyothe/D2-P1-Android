@@ -21,3 +21,14 @@ dependencyResolutionManagement {
 
 rootProject.name = "D2-P1"
 include(":app")
+
+include(":core:ui")
+include(":core:domain")
+include(":core:data")
+
+include(":features:admin:ui")
+include(":features:admin:domain")
+include(":features:admin:data")
+
+
+ 
