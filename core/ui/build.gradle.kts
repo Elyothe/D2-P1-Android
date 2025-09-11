@@ -1,20 +1,13 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
 
 android {
-    namespace = "com.example.d2_p1"
+    namespace = "com.example.d2_p1.features.core.ui"
     compileSdk = 36
 
-    defaultConfig {
-        applicationId = "com.example.d2_p1"
-        minSdk = 29
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
-    }
 
     buildTypes {
         release {
