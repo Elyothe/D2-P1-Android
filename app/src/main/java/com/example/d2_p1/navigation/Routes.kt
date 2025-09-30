@@ -1,9 +1,13 @@
 package com.example.d2_p1.navigation
 
-object Routes {
-   const val createSpaceScreen = "Space_Screen"
-   const val homescreen = "home_screen"
-   const val galleryOne = "gallery_one"
+sealed class Screen(val route: String) {
+   object HomeScreen : Screen("home_screen")
+   object CreateSpaceScreen : Screen("space_screen")
+   object ModifySpaceScreen : Screen("modify_space_screen/{spaceId}") {
+      fun createRoute(spaceId: Int) = "modify_space_screen/$spaceId"
+   }
 
-
+   object SpaceDetailScreen : Screen("space_detail_screen/{spaceId}") {
+      fun createRoute(spaceId: Int) = "space_detail_screen/$spaceId"
+   }
 }

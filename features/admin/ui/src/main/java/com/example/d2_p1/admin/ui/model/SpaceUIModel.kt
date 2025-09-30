@@ -1,7 +1,10 @@
+package com.example.d2_p1.admin.ui.model
 data class SpaceUiModel(
-    val id: String = "",
+    val id: Int = 0,
     val name: String = "",
     val description: String = "",
+    val photoUrl: String? = null,
     val capacity: Int = 0,
-    val label: String = "Projecteur",
+    val isActive: Boolean = true,
+    val label: String = ""
 )
