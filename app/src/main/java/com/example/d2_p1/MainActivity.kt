@@ -10,11 +10,9 @@ import androidx.navigation.compose.rememberNavController
 import com.example.d2_p1.admin.ui.screens.CreateSpaceScreen
 import com.example.d2_p1.admin.ui.screens.ModifySpaceScreen
 import com.example.d2_p1.admin.ui.screens.GalleryOneScreen
-import com.example.d2_p1.core.data.models.Routes
+import com.example.d2_p1.core.data.models.Route
 import com.example.d2_p1.core.ui.screens.HomeScreen
 import com.example.d2_p1.ui.theme.D2P1Theme
-import navigation.Screen
-
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,21 +23,19 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 NavHost(
                     navController = navController,
-                    startDestination = Screen.HomeScreen.route
+                    startDestination = Route.HomeScreen
                 ) {
-                    composable(Routes.homescreen) {
+                    composable(Route.HomeScreen) {
                         HomeScreen(navController)
                     }
-
-                    composable(Screen.CreateSpaceScreen.route) {
-                        CreateSpaceScreen(
-                            onBackClick = { navController.popBackStack() }
-                        )
+                    composable(Route.GalleryOne){
+                        GalleryOneScreen(navController)
                     }
-                    composable(Screen.ModifySpaceScreen.route) {
-                        ModifySpaceScreen(
-                            onBackClick = { navController.popBackStack() }
-                        )
+                    composable(Route.CreateSpaceScreen) {
+                        CreateSpaceScreen(navController)
+                    }
+                    composable(Route.EditSpaceScreen) {
+                        ModifySpaceScreen(navController)
                     }
                 }
             }

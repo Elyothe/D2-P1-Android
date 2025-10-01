@@ -2,13 +2,12 @@ package com.example.d2_p1.admin.ui.screens
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.d2_p1.admin.ui.component.SpaceForm
-import com.example.d2_p1.admin.ui.model.SpaceUiModel
+import androidx.navigation.NavController
+import com.example.d2_p1.admin.ui.components.SpaceForm
+import com.example.d2_p1.admin.ui.models.SpaceUiModel
 
 @Composable
-fun ModifySpaceScreen(
-    onBackClick: () -> Unit,
+fun ModifySpaceScreen(navController: NavController,
     modifier: Modifier = Modifier
 ) {
     // Données en dur pour le preview
@@ -22,18 +21,9 @@ fun ModifySpaceScreen(
     SpaceForm(
         title = "Modify Space",
         spaceToEdit = mockSpace,
-        onBackClick = onBackClick,
         onSaveClick = { println("Space modifié: $it") },
         modifier = modifier,
-        isCreating = false,
 
     )
 }
 
-@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun PreviewModifySpaceScreen() {
-    ModifySpaceScreen(
-        onBackClick = {}
-    )
-}

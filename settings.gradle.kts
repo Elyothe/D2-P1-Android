@@ -30,6 +30,9 @@ include(":features:admin:ui")
 include(":features:admin:domain")
 include(":features:admin:data")
 
-include(":features:client:reservation:data")
+include(":features:client:ui")
+include(":features:client:domain")
+include(":features:client:data")
+
 
 

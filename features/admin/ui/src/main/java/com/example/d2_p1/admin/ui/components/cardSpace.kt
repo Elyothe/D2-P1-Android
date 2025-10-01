@@ -34,7 +34,8 @@ fun SpaceCard(
     spaceName: String,
     spaceType: String,
     capacity: Int,
-    hasWifi: Boolean
+    hasWifi: Boolean,
+    onClick: () -> Unit = {} // paramètre cliquable par défaut
 ) {
     Card(
         modifier = Modifier
@@ -46,7 +47,8 @@ fun SpaceCard(
         ),
         elevation = CardDefaults.cardElevation(
             defaultElevation = 2.dp
-        )
+        ),
+        onClick = onClick // 👉 ajout de l'action
     ) {
         Column(
             modifier = Modifier.fillMaxSize()
@@ -103,14 +105,7 @@ fun SpaceCard(
                         )
                     }
 
-                    if (hasWifi) {
-                        Icon(
-                            imageVector = Icons.Default.Call,
-                            contentDescription = "WiFi disponible",
-                            modifier = Modifier.size(16.dp),
-                            tint = Color.Gray
-                        )
-                    }
+                    
                 }
             }
         }
