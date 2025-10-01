@@ -1,10 +1,10 @@
 package com.example.d2_p1.admin.ui.screens
 
-import SpaceUiModel
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.d2_p1.admin.ui.component.SpaceForm
+import com.example.d2_p1.admin.ui.model.SpaceUiModel
 
 @Composable
 fun ModifySpaceScreen(
@@ -13,7 +13,7 @@ fun ModifySpaceScreen(
 ) {
     // Données en dur pour le preview
     val mockSpace = SpaceUiModel(
-        id = "123",
+        id = 123,
         name = "Salle 24",
         description = "Ceci est une description",
         capacity = 10,
@@ -21,10 +21,12 @@ fun ModifySpaceScreen(
     )
     SpaceForm(
         title = "Modify Space",
-        initialState = mockSpace,
+        spaceToEdit = mockSpace,
         onBackClick = onBackClick,
-        onSaveClick = { updatedSpace -> println("Espace modifié: $updatedSpace") },
-        modifier = modifier
+        onSaveClick = { println("Space modifié: $it") },
+        modifier = modifier,
+        isCreating = false,
+
     )
 }
 

@@ -1,4 +1,4 @@
-package com.example.d2_p1.core.ui.components
+package component
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -9,7 +9,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.NavigationBarItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -25,10 +24,13 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.List
 import androidx.compose.material.icons.filled.Person
-import androidx.compose.material.icons.filled.ShoppingCart
+import navigation.Screen
+
 
 @Composable
-fun CustomNavigationBar() {
+fun CustomNavigationBar(
+    onNavigate: (String) -> Unit
+) {
     var selectedItem by remember { mutableIntStateOf(0) }
     val items = listOf("Accueil", "Réservation", "Profil")
 
@@ -61,22 +63,24 @@ fun CustomNavigationBar() {
                     },
                     label = { Text(item) },
                     selected = selectedItem == index,
-                    onClick = { selectedItem = index },
-                    colors = NavigationBarItemDefaults.colors(
-                        selectedIconColor = Color.Black,
-                        unselectedIconColor = Color.Gray,
-                        selectedTextColor = Color.Black,
-                        unselectedTextColor = Color.Gray,
-                        indicatorColor = Color(0xFFBDBDBD)
-                    )
+                    onClick = {
+                        selectedItem = index
+                        when (index) {
+                            0 -> onNavigate(Screen.HomeScreen.route)
+                            1 -> onNavigate(Screen.CreateSpaceScreen.route)
+                            2 -> println("TODO: Navigation vers profil")
+                        }
+                    }
                 )
             }
         }
     }
 }
 
+
+
 @Preview(showBackground = true)
 @Composable
 fun PreviewCustomNavigationBar() {
-    CustomNavigationBar()
+    CustomNavigationBar(onNavigate = {})
 }

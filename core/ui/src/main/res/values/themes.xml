@@ -2,4 +2,14 @@
 <resources>
 
     <style name="Theme.D2P1" parent="android:Theme.Material.Light.NoActionBar" />
+        <!-- Base application theme. -->
+        <style name="Theme.YourApp.CoreUI" parent="Theme.Material3.DayNight.NoActionBar">
+            <!-- Customize your theme here. -->
+            <!-- For example, you might define primary and secondary colors -->
+            <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        </style>
+
+        <!-- Base application theme. -->
+        <!-- <style name="Theme.YourApp.CoreUI" parent="Theme.MaterialComponents.DayNight.NoActionBar" -->
+        <!-- Customize your theme here. -->
 </resources>

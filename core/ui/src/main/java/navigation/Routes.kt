@@ -1,8 +1,9 @@
-package com.example.d2_p1.core.data.models
+package navigation
 
 sealed class Screen(val route: String) {
    object HomeScreen : Screen("home_screen")
    object CreateSpaceScreen : Screen("space_screen")
+   object GalleryOne : Screen("gallery_one")
    object ModifySpaceScreen : Screen("modify_space_screen/{spaceId}") {
       fun createRoute(spaceId: Int) = "modify_space_screen/$spaceId"
    }

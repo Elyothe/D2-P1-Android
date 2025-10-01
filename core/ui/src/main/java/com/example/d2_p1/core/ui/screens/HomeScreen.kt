@@ -33,6 +33,9 @@ fun HomeScreen(navController: NavController) {
                 }
             }
         }
+
+        // Barre de navigation en bas
+        CustomNavigationBar(onNavigate = onNavigate)
     }
 }
 
