@@ -1,17 +1,25 @@
-package com.example.d2_p1.admin.ui
+package com.example.d2_p1.admin.ui.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.grid.GridCells
-import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
-import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Call
-import androidx.compose.material3.*
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -20,60 +28,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.d2_p1.core.datasource.MockData
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
-fun GalleryOneScreen() {
-    val spaces = MockData.spaces
-
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color(0xFFF5F5F5))
-    ) {
-        // Header avec bouton retour et titre
-        TopAppBar(
-            title = {
-                Text(
-                    text = "Espaces disponibles",
-                    fontWeight = FontWeight.Bold,
-                    fontSize = 20.sp
-                )
-            },
-            navigationIcon = {
-                IconButton(onClick = { /* Navigation retour */ }) {
-                    Icon(
-                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                        contentDescription = "Retour"
-                    )
-                }
-            },
-            colors = TopAppBarDefaults.topAppBarColors(
-                containerColor = Color.White
-            )
-        )
-
-        // Grille des espaces
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(2),
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(16.dp),
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
-            items(spaces) { space ->
-                SpaceCard(
-                    spaceName = space.name,
-                    spaceType = space.category,
-                    capacity = space.maxCapacity,
-                    hasWifi = space.resources.contains("wifi", ignoreCase = true)
-                )
-            }
-        }
-    }
-}
 
 @Composable
 fun SpaceCard(
@@ -97,7 +51,6 @@ fun SpaceCard(
         Column(
             modifier = Modifier.fillMaxSize()
         ) {
-            // Image de la salle (placeholder)
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -107,12 +60,10 @@ fun SpaceCard(
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = "📋", // Emoji temporaire en attendant les vraies images
+                    text = "📋",
                     fontSize = 24.sp
                 )
             }
-
-            // Informations de la salle
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -130,8 +81,6 @@ fun SpaceCard(
                     fontSize = 14.sp,
                     fontWeight = FontWeight.Medium
                 )
-
-                // Icônes en bas
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,

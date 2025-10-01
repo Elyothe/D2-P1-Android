@@ -6,12 +6,12 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class Space(
     val id: Int,
-    val name: String, // Nom de la salle
-    val category: String, // Catégorie de salle
-    val maxCapacity: Int, // Capacité (corrigé la faute de frappe)
-    val resources: String, // Ressources
-    val description: String, // Description
+    val name: String,
+    val category: String,
+    val maxCapacity: Int,
+    val resources: String,
+    val description: String,
     val photoUrl: String? = null,
     val isActive: Boolean = true,
-    val reservations: List<Reservation> = emptyList() // liste de réservations
+    val reservations: List<Reservation> = emptyList()
 )
