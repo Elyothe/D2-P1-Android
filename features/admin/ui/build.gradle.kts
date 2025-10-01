@@ -38,6 +38,10 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.bundles.compose.ui)
 
+    // Ajout des dépendances vers les modules core
+    implementation(project(":core:data"))
+    implementation(project(":core:ui"))
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
