@@ -6,24 +6,43 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.d2_p1.admin.ui.components.SpaceCard
+import com.example.d2_p1.core.data.models.Route
 import com.example.d2_p1.core.datasource.MockData
 import com.example.d2_p1.core.ui.components.HeaderBar
+import com.example.d2_p1.core.ui.components.FloatingButton
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun GalleryOneScreen(navController: NavController) {
+fun ListSpaceScreen(navController: NavController) {
     val spaces = MockData.spaces
 
     Scaffold(
         bottomBar = { NavBar(navController) },
-        modifier = Modifier.background(Color(0xFFF5F5F5))
+        modifier = Modifier.background(Color(0xFFF5F5F5)),
+        floatingActionButton = {
+            Box(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(16.dp),
+                contentAlignment = Alignment.BottomEnd
+            ) {
+                FloatingButton(
+                    icon = Icons.Filled.Add,
+                    contentDescription = "Modifier",
+                    onClick = { navController.navigate(Route.CreateSpaceScreen) }
+                )
+            }
+        }
     ) { innerPadding ->
 
         Column(
@@ -60,4 +79,5 @@ fun GalleryOneScreen(navController: NavController) {
         }
     }
 }
+
 

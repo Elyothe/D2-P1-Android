@@ -5,7 +5,8 @@ object Route {
    const val HomeScreen = "home_screen"
    const val LoginScreen = "login_screen"
    const val EditSpaceScreen = "editSpace_screen"
-   const val GalleryOne = "gallery_One"
+
+   const val ListSpaceScreen = "listSpace_screen"
    const val CreateSpaceScreen = "createSpace_screen"
 
 }

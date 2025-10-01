@@ -28,7 +28,7 @@ fun HomeScreen(navController: NavController) {
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(text = "Welcome to the Home test")
-                Button(onClick = { navController.navigate("gallery_one") }) {
+                Button(onClick = { navController.navigate("listSpace_screen") }) {
                     Text(text = "Click me")
                 }
             }

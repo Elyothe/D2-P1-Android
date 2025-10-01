@@ -9,7 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.d2_p1.admin.ui.screens.CreateSpaceScreen
 import com.example.d2_p1.admin.ui.screens.ModifySpaceScreen
-import com.example.d2_p1.admin.ui.screens.GalleryOneScreen
+import com.example.d2_p1.admin.ui.screens.ListSpaceScreen
 import com.example.d2_p1.core.data.models.Route
 import com.example.d2_p1.core.ui.screens.HomeScreen
 import com.example.d2_p1.ui.theme.D2P1Theme
@@ -28,8 +28,8 @@ class MainActivity : ComponentActivity() {
                     composable(Route.HomeScreen) {
                         HomeScreen(navController)
                     }
-                    composable(Route.GalleryOne){
-                        GalleryOneScreen(navController)
+                    composable(Route.ListSpaceScreen){
+                        ListSpaceScreen(navController)
                     }
                     composable(Route.CreateSpaceScreen) {
                         CreateSpaceScreen(navController)
