@@ -27,6 +27,7 @@ include(":core:domain")
 include(":core:data")
 
 include(":features:admin:ui")
+include(":features:admin:api")
 include(":features:admin:domain")
 include(":features:admin:data")
 
@@ -36,3 +37,4 @@ include(":features:client:data")
 
 
 
+include(":features:api")

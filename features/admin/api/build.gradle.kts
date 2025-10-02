@@ -1,21 +1,13 @@
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-
 }
 
 android {
-    namespace = "com.example.d2_p1"
+    namespace = "com.example.d2_p1.features.admin.api"
     compileSdk = 36
 
-    defaultConfig {
-        applicationId = "com.example.d2_p1"
-        minSdk = 29
-        targetSdk = 36
-        versionCode = 1
-        versionName = "1.0"
-    }
 
     buildTypes {
         release {
@@ -32,12 +24,11 @@ android {
     buildFeatures {
         compose = true
     }
+
 }
 
 dependencies {
-    implementation(project(":core:ui"))
-    implementation(project(":features:admin:ui"))
-    implementation(project(":core:ui"))
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -47,14 +38,23 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.bundles.compose.ui)
-    implementation(libs.androidx.navigation.compose)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+
+    // Ajout des dépendances vers les modules core
     implementation(project(":core:data"))
-    debugImplementation(libs.androidx.compose.ui.tooling)
+    implementation(project(":core:ui"))
+    implementation(libs.androidx.navigation.runtime.ktx)
     implementation("androidx.navigation:navigation-compose:2.7.7")
 
     // ajout de l'implementation de koin pour injecter les dépendances
     implementation(project.dependencies.platform(libs.koin.bom))
     implementation(libs.bundles.koin)
+
+    implementation(project(":features:admin:domain"))
+    implementation(project(":features:admin:data"))
+    implementation(project(":features:admin:ui"))
+
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    debugImplementation(libs.androidx.compose.ui.tooling)
 }

@@ -26,6 +26,7 @@ android {
 
 }
 
+
 dependencies {
 
     val ktor_version = "3.2.3"
@@ -36,5 +37,9 @@ dependencies {
     implementation("io.ktor:ktor-client-content-negotiation:${ktor_version}")
     implementation("io.ktor:ktor-serialization-kotlinx-json:${ktor_version}")
     implementation("io.ktor:ktor-client-logging:${ktor_version}")
+
+    // ajout de l'implementation de koin pour injecter les dépendances
+    implementation(project.dependencies.platform(libs.koin.bom))
+    implementation(libs.bundles.koin)
 
 }

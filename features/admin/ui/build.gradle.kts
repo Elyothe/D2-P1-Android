@@ -24,6 +24,7 @@ android {
     buildFeatures {
         compose = true
     }
+
 }
 
 dependencies {
@@ -42,6 +43,11 @@ dependencies {
     implementation(project(":core:data"))
     implementation(project(":core:ui"))
     implementation(libs.androidx.navigation.runtime.ktx)
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+
+    // ajout de l'implementation de koin pour injecter les dépendances
+    implementation(project.dependencies.platform(libs.koin.bom))
+    implementation(libs.bundles.koin)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
