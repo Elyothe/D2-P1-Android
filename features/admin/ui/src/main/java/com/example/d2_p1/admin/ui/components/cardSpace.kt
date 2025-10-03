@@ -105,7 +105,7 @@ fun SpaceCard(
                         )
                     }
 
-                    
+
                 }
             }
         }
