@@ -1,5 +1,6 @@
 package com.example.d2_p1
 
+import SpaceModule
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -13,10 +14,17 @@ import com.example.d2_p1.admin.ui.screens.ListSpaceScreen
 import com.example.d2_p1.core.data.models.Route
 import com.example.d2_p1.core.ui.screens.HomeScreen
 import com.example.d2_p1.ui.theme.D2P1Theme
+import org.koin.core.context.startKoin
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        startKoin {
+            modules(
+                SpaceModule
+            )
+        }
         enableEdgeToEdge()
         setContent {
             D2P1Theme {
