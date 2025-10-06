@@ -8,6 +8,9 @@ android {
     namespace = "com.example.d2_p1.features.core.ui"
     compileSdk = 36
 
+    defaultConfig {
+        minSdk = 26
+    }
 
     buildTypes {
         release {

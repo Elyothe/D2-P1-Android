@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.d2_p1.features.admin.ui"
+    namespace = "com.example.d2_p1.features.admin.api"
     compileSdk = 36
 
 
@@ -49,10 +49,12 @@ dependencies {
     implementation(project.dependencies.platform(libs.koin.bom))
     implementation(libs.bundles.koin)
 
+    implementation(project(":features:admin:domain"))
+    implementation(project(":features:admin:data"))
+    implementation(project(":features:admin:ui"))
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     debugImplementation(libs.androidx.compose.ui.tooling)
-
-    implementation(project(":features:admin:domain"))
 }

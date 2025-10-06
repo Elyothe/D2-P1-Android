@@ -56,4 +56,10 @@ dependencies {
     implementation(project(":core:data"))
     debugImplementation(libs.androidx.compose.ui.tooling)
     implementation("androidx.navigation:navigation-compose:2.7.7")
+
+    // ajout de l'implementation de koin pour injecter les dépendances
+    implementation(project.dependencies.platform(libs.koin.bom))
+    implementation(libs.bundles.koin)
+
+    implementation(project(":features:admin:api"))
 }
