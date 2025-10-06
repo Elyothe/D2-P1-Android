@@ -4,7 +4,7 @@ import com.example.d2_p1.core.data.models.Space
 
 object MockData {
 
-    val spaces = listOf(
+    val spaces = mutableListOf(
         Space(
             id = 1,
             name = "Salle 1",
