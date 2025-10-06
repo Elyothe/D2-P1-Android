@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.d2_p1.admin.ui.models.SpaceUiModel
 import com.example.d2_p1.core.data.models.Space
-import com.example.d2_p1.core.datasource.*
 import kotlinx.coroutines.launch
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.snapshots.SnapshotStateList
@@ -17,13 +16,12 @@ class SpaceViewModel : ViewModel(),KoinComponent {
 
     val spaces: SnapshotStateList<SpaceUiModel> = mutableStateListOf()
 
-    init {
-        loadSpaces()
-    }
-
     /**
      * Récupère les espaces depuis l’API et les mappe en UI model
      */
+    init {
+        loadSpaces()
+    }
     fun loadSpaces() {
 
         val spaceRepository: SpaceRepository by inject()
@@ -75,4 +73,6 @@ fun Space.toUiModel() = SpaceUiModel(
     description = description,
     photoUrl = photoUrl,
     isActive = isActive,
+    capacity = maxCapacity,
+    label = category
 )
