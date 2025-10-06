@@ -38,6 +38,9 @@ dependencies {
     implementation(project(":core:ui"))
     implementation(project(":features:admin:ui"))
     implementation(project(":core:ui"))
+    implementation(project(":features:client:ui"))
+
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)

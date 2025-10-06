@@ -18,8 +18,8 @@ import androidx.navigation.NavController
 import com.example.d2_p1.admin.ui.components.SpaceCard
 import com.example.d2_p1.core.data.models.Route
 import com.example.d2_p1.core.datasource.MockData
-import com.example.d2_p1.core.ui.components.HeaderBar
 import com.example.d2_p1.core.ui.components.FloatingButton
+import com.example.d2_p1.core.ui.components.HeaderBarCustom
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -50,7 +50,7 @@ fun ListSpaceScreen(navController: NavController) {
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
-            HeaderBar(
+            HeaderBarCustom(
                 title = "Espaces Disponibles",
                 showBackButton = true,
                 onBackClick = { navController.popBackStack() }
@@ -69,7 +69,7 @@ fun ListSpaceScreen(navController: NavController) {
                         spaceName = space.name,
                         spaceType = space.category,
                         capacity = space.maxCapacity,
-                        hasWifi = space.resources.contains("wifi", ignoreCase = true),
+                        hasWifi = space.resources.contains("wifi"),
                         onClick = {
                             navController.popBackStack()
                         }

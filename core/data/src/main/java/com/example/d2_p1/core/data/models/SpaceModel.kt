@@ -9,7 +9,7 @@ data class Space(
     val name: String,
     val category: String,
     val maxCapacity: Int,
-    val resources: String,
+    val resources: List<String>,
     val description: String,
     val photoUrl: String? = null,
     val isActive: Boolean = true,

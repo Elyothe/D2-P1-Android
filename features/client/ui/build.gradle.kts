@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.d2_p1.features.admin.ui"
+    namespace = "com.example.d2_p1.features.client.ui"
     compileSdk = 36
 
 
@@ -42,6 +42,7 @@ dependencies {
     implementation(project(":core:data"))
     implementation(project(":core:ui"))
     implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.material3)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

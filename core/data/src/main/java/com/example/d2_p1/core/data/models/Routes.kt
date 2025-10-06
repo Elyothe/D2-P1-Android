@@ -9,4 +9,5 @@ object Route {
    const val ListSpaceScreen = "listSpace_screen"
    const val CreateSpaceScreen = "createSpace_screen"
 
+   const val DetailSpaceScreen = "detailSpace_screen"
 }

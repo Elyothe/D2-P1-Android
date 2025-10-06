@@ -10,7 +10,6 @@ import com.example.d2_p1.admin.ui.models.SpaceUiModel
 fun ModifySpaceScreen(navController: NavController,
     modifier: Modifier = Modifier
 ) {
-    // Données en dur pour le preview
     val mockSpace = SpaceUiModel(
         id = 123,
         name = "Salle 24",
@@ -23,7 +22,6 @@ fun ModifySpaceScreen(navController: NavController,
         spaceToEdit = mockSpace,
         onSaveClick = { println("Space modifié: $it") },
         modifier = modifier,
-
     )
 }
 

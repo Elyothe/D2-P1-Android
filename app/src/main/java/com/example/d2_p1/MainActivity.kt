@@ -4,10 +4,13 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.example.d2_p1.admin.ui.screens.CreateSpaceScreen
+import com.example.d2_p1.admin.ui.screens.DetailSpaceScreen
 import com.example.d2_p1.admin.ui.screens.ModifySpaceScreen
 import com.example.d2_p1.admin.ui.screens.ListSpaceScreen
 import com.example.d2_p1.core.data.models.Route
@@ -37,7 +40,10 @@ class MainActivity : ComponentActivity() {
                     composable(Route.EditSpaceScreen) {
                         ModifySpaceScreen(navController)
                     }
-                }
+                    composable(Route.DetailSpaceScreen) {
+                        DetailSpaceScreen(navController)
+                    }
+           }
             }
         }
     }

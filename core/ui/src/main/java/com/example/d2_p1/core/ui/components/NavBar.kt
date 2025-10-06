@@ -1,6 +1,7 @@
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.DateRange
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
@@ -22,10 +23,16 @@ fun NavBar(navController: NavController) {
         )
 
         NavigationBarItem(
-            icon = { Icon(Icons.Default.Settings, contentDescription = "Paramètres") },
-            label = { Text("Settings") },
-            selected = currentRoute == "settings",
-            onClick = { navController.navigate("settings") }
+            icon = { Icon(Icons.Default.DateRange, contentDescription = "Réservation") },
+            label = { Text("Réservation") },
+            selected = currentRoute == "reservation",
+            onClick = { navController.navigate("listspace_screen") }
+        )
+        NavigationBarItem(
+            icon = { Icon(Icons.Default.AccountCircle, contentDescription = "Profil") },
+            label = { Text("Profil") },
+            selected = currentRoute == "profil",
+            onClick = { navController.navigate("profil") }
         )
     }
 }
