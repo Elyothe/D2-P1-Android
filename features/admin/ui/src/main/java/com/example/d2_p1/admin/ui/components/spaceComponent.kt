@@ -4,14 +4,20 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Call
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.d2_p1.admin.ui.models.SpaceUiModel
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -164,6 +170,86 @@ fun SpaceForm(
                 modifier = Modifier.fillMaxWidth()
             ) {
                 Text("Enregistrer")
+            }
+        }
+    }
+}
+
+@Composable
+fun SpaceCard(
+    spaceName: String,
+    spaceType: String,
+    capacity: Int,
+    hasWifi: Boolean,
+    onClick: () -> Unit,
+    onDeleteClick: () -> Unit,
+    modifier: Modifier = Modifier
+) {
+    Card(
+        onClick = onClick,
+        modifier = modifier
+            .fillMaxWidth()
+            .height(160.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+    ) {
+        Box(
+            modifier = Modifier.fillMaxSize()
+        ) {
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(12.dp),
+                verticalArrangement = Arrangement.spacedBy(8.dp)
+            ) {
+                Text(
+                    text = spaceName,
+                    fontSize = 16.sp,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.Black
+                )
+
+                Text(
+                    text = spaceType,
+                    fontSize = 14.sp,
+                    color = Color.Gray
+                )
+
+                Text(
+                    text = "$capacity personnes",
+                    fontSize = 12.sp,
+                    color = Color.Gray
+                )
+
+                if (hasWifi) {
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        horizontalArrangement = Arrangement.spacedBy(4.dp)
+                    ) {
+                        Icon(
+                            imageVector = Icons.Default.Call,
+                            contentDescription = "Wifi disponible",
+                            tint = Color.Blue,
+                            modifier = Modifier.size(16.dp)
+                        )
+                        Text(
+                            text = "WiFi",
+                            fontSize = 12.sp,
+                            color = Color.Blue
+                        )
+                    }
+                }
+            }
+
+            // Bouton de suppression en haut à droite
+            IconButton(
+                onClick = onDeleteClick,
+                modifier = Modifier.align(Alignment.TopEnd)
+            ) {
+                Icon(
+                    imageVector = Icons.Default.Delete,
+                    contentDescription = "Supprimer",
+                    tint = Color.Red
+                )
             }
         }
     }

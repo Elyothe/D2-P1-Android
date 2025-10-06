@@ -9,12 +9,17 @@ class SpaceRepositoryImplementation : SpaceRepository {
         return MockData.spaces
     }
 
-    override suspend fun deletSpace(id: Int): Boolean {
-        try {
-            val spaceExists = MockData.spaces.any { it.id == id }
-            return spaceExists
+    override suspend fun deleteSpace(id: Int): Boolean {
+        return try {
+            val spaceToRemove = MockData.spaces.find { it.id == id }
+            if (spaceToRemove != null) {
+                MockData.spaces.remove(spaceToRemove)
+                true
+            } else {
+                false
+            }
         } catch (e: Exception) {
-            return false
+            false
         }
     }
 }

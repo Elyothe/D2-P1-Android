@@ -9,8 +9,7 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -31,9 +30,48 @@ fun ListSpaceScreen(
     loadOnStart: Boolean = true
 ) {
     val spaces = viewModel.spaces
+    var showDeleteDialog by remember { mutableStateOf(false) }
+    var spaceToDelete by remember { mutableStateOf<Int?>(null) }
 
     LaunchedEffect(loadOnStart) {
         if (loadOnStart) viewModel.loadSpaces()
+    }
+
+    // Boîte de dialogue de confirmation de suppression
+    if (showDeleteDialog && spaceToDelete != null) {
+        AlertDialog(
+            onDismissRequest = {
+                showDeleteDialog = false
+                spaceToDelete = null
+            },
+            title = { Text("Confirmer la suppression") },
+            text = {
+                Text("Êtes-vous sûr de vouloir supprimer cette salle ? Cette action est irréversible.")
+            },
+            confirmButton = {
+                TextButton(
+                    onClick = {
+                        spaceToDelete?.let { id ->
+                            viewModel.deleteSpace(id)
+                        }
+                        showDeleteDialog = false
+                        spaceToDelete = null
+                    }
+                ) {
+                    Text("Supprimer", color = Color.Red)
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        showDeleteDialog = false
+                        spaceToDelete = null
+                    }
+                ) {
+                    Text("Annuler")
+                }
+            }
+        )
     }
 
     Scaffold(
@@ -95,6 +133,10 @@ fun ListSpaceScreen(
                             hasWifi = space.description.contains("wifi", ignoreCase = true),
                             onClick = {
                                 navController.popBackStack()
+                            },
+                            onDeleteClick = {
+                                spaceToDelete = space.id
+                                showDeleteDialog = true
                             }
                         )
                     }

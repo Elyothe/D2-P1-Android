@@ -14,18 +14,17 @@ import org.koin.core.component.inject
 
 class SpaceViewModel : ViewModel(),KoinComponent {
 
+    private val spaceRepository: SpaceRepository by inject()
     val spaces: SnapshotStateList<SpaceUiModel> = mutableStateListOf()
 
     /**
-     * Récupère les espaces depuis l’API et les mappe en UI model
+     * Récupère les espaces depuis l'API et les mappe en UI model
      */
     init {
         loadSpaces()
     }
+
     fun loadSpaces() {
-
-        val spaceRepository: SpaceRepository by inject()
-
         viewModelScope.launch{
             try {
                 val apiSpaces = spaceRepository.getSpaces()
@@ -38,24 +37,17 @@ class SpaceViewModel : ViewModel(),KoinComponent {
     }
 
     /**
-     * Crée un nouvel espace
-     */
-
-
-    /**
-     * Met à jour un espace existant
-     */
-
-
-    /**
      * Supprime un espace
      */
     fun deleteSpace(id: Int) {
         viewModelScope.launch {
             try {
-                val success = com.example.d2_p1.core.datasource.deleteSpace(id)
-                if (success ) {
+                val success = spaceRepository.deleteSpace(id)
+                if (success) {
                     spaces.removeAll { it.id == id }
+                    Log.d("SpaceViewModel", "Espace supprimé avec succès: $id")
+                } else {
+                    Log.w("SpaceViewModel", "Échec de la suppression de l'espace: $id")
                 }
             } catch (e: Exception) {
                 Log.e("SpaceViewModel", "Erreur deleteSpace: ${e.message}", e)
