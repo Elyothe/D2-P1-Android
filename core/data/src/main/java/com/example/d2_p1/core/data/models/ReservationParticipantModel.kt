@@ -8,6 +8,6 @@ data class ReservationParticipant(
     val reservationId: Int,
     val userId: Int,
     val userName: String,
-    val reservation: Reservation? = null, // référence à Reservation
-    val user: User? = null                // référence à User
+    val reservation: Reservation? = null,
+    val user: User? = null
 )

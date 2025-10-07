@@ -36,6 +36,10 @@ include(":features:available:api")
 include(":features:available:domain")
 include(":features:available:data")
 
+include(":features:booking:ui")
+include(":features:booking:api")
+include(":features:booking:domain")
+include(":features:booking:data")
 
 include(":features:client:ui")
 include(":features:client:domain")
