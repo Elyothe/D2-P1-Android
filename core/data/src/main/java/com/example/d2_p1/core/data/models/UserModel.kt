@@ -10,6 +10,6 @@ data class User(
     val displayName: String,
     val isActive: Boolean,
     val roleId: Int,
-    val role: Role? = null,                       // référence à Role
-    val reservations: List<Reservation> = emptyList() // liste de réservations
+    val role: Role? = null,
+    val reservations: List<Reservation> = emptyList()
 )

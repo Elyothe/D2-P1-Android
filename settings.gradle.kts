@@ -31,6 +31,12 @@ include(":features:admin:api")
 include(":features:admin:domain")
 include(":features:admin:data")
 
+include(":features:available:ui")
+include(":features:available:api")
+include(":features:available:domain")
+include(":features:available:data")
+
+
 include(":features:client:ui")
 include(":features:client:domain")
 include(":features:client:data")
