@@ -39,6 +39,11 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.bundles.compose.ui)
 
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    debugImplementation(libs.androidx.compose.ui.tooling)
+
     // Ajout des dépendances vers les modules core
     implementation(project(":core:data"))
     implementation(project(":core:ui"))
@@ -53,8 +58,5 @@ dependencies {
     implementation(project(":features:booking:data"))
     implementation(project(":features:booking:ui"))
 
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
-    debugImplementation(libs.androidx.compose.ui.tooling)
+
 }
