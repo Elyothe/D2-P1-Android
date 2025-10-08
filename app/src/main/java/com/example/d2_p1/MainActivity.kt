@@ -1,16 +1,15 @@
 package com.example.d2_p1
 
+import LoginScreen
 import SpaceModule
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import androidx.navigation.navArgument
-import com.example.d2_p1.admin.ui.screens.CreateSpaceScreen
+import com.example.d2_p1.admin.ui.screens.create.CreateSpaceScreen
 import com.example.d2_p1.admin.ui.screens.DetailSpaceScreen
 import com.example.d2_p1.admin.ui.screens.ModifySpaceScreen
 import com.example.d2_p1.admin.ui.screens.ListSpaceScreen
@@ -34,7 +33,7 @@ class MainActivity : ComponentActivity() {
                 val navController = rememberNavController()
                 NavHost(
                     navController = navController,
-                    startDestination = Route.HomeScreen
+                    startDestination = Route.LoginScreen
                 ) {
                     composable(Route.HomeScreen) {
                         HomeScreen(navController)
@@ -48,10 +47,17 @@ class MainActivity : ComponentActivity() {
                     composable(Route.EditSpaceScreen) {
                         ModifySpaceScreen(navController)
                     }
-                    composable(Route.DetailSpaceScreen) {
-                        DetailSpaceScreen(navController)
+                    composable(Route.LoginScreen){
+                        LoginScreen(navController)
                     }
-           }
+                    composable(
+                        route = "${Route.DetailSpaceScreen}/{spaceId}"
+                    ) { backStackEntry ->
+                        val spaceId = backStackEntry.arguments?.getString("spaceId") ?: ""
+                        DetailSpaceScreen(navController, spaceId)
+                    }
+
+                }
             }
         }
     }

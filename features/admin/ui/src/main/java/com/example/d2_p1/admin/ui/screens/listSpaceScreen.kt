@@ -105,7 +105,6 @@ fun ListSpaceScreen(
             )
 
             if (spaces.isEmpty()) {
-                // ✅ Affiche un message centré si aucun espace
                 Box(
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
@@ -116,7 +115,6 @@ fun ListSpaceScreen(
                     )
                 }
             } else {
-                // ✅ Une seule LazyVerticalGrid ici
                 LazyVerticalGrid(
                     columns = GridCells.Fixed(2),
                     modifier = Modifier
@@ -132,7 +130,7 @@ fun ListSpaceScreen(
                             capacity = space.capacity,
                             hasWifi = space.description.contains("wifi", ignoreCase = true),
                             onClick = {
-                                navController.popBackStack()
+                                navController.navigate("${Route.DetailSpaceScreen}/${space.id}")
                             },
                             onDeleteClick = {
                                 spaceToDelete = space.id

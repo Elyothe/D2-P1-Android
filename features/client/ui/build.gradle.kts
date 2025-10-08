@@ -41,11 +41,16 @@ dependencies {
     // Ajout des dépendances vers les modules core
     implementation(project(":core:data"))
     implementation(project(":core:ui"))
+    implementation(project(":core:domain"))
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.material3)
+    implementation(libs.androidx.room.ktx)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     debugImplementation(libs.androidx.compose.ui.tooling)
+
+    implementation(project(":features:client:domain"))
+
 }

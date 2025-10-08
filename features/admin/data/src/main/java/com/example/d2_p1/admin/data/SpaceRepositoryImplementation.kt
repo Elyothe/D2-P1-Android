@@ -5,7 +5,8 @@ import com.example.d2_p1.core.datasource.MockData
 import com.example.d2_p1.core.data.models.Space
 
 class SpaceRepositoryImplementation : SpaceRepository {
-     override suspend fun getSpaces(): List<Space> {
+
+    override suspend fun getSpaces(): List<Space> {
         return MockData.spaces
     }
 
@@ -18,6 +19,16 @@ class SpaceRepositoryImplementation : SpaceRepository {
             } else {
                 false
             }
+        } catch (e: Exception) {
+            false
+        }
+    }
+
+    override suspend fun createSpace(space: Space): Boolean {
+        return try {
+            val newId = (MockData.spaces.maxOfOrNull { it.id } ?: 0) + 1
+            MockData.spaces.add(space.copy(id = newId))
+            true
         } catch (e: Exception) {
             false
         }
