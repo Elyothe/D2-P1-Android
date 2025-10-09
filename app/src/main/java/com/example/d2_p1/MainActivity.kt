@@ -18,7 +18,6 @@ import com.example.d2_p1.core.ui.screens.HomeScreen
 import com.example.d2_p1.ui.theme.D2P1Theme
 import org.koin.core.context.startKoin
 
-// Pas impecable, mais ça ira pour la démo
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
