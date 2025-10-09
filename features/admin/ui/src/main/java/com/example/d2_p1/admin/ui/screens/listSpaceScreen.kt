@@ -116,7 +116,6 @@ fun ListSpaceScreen(
                     )
                 }
             } else {
-                // ✅ Une seule LazyVerticalGrid ici
                 LazyVerticalGrid(
                     columns = GridCells.Fixed(2),
                     modifier = Modifier

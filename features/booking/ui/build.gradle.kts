@@ -34,6 +34,7 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.bundles.compose.ui)
+    implementation(libs.androidx.compose.foundation)
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -50,6 +51,7 @@ dependencies {
     implementation(project.dependencies.platform(libs.koin.bom))
     implementation(libs.bundles.koin)
 
-    implementation(project(":core:data"))
+    implementation(project(":features:admin:ui"))
     implementation(project(":features:booking:domain"))
+    implementation(project(":features:booking:data"))
 }

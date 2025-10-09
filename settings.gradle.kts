@@ -44,7 +44,3 @@ include(":features:booking:data")
 include(":features:client:ui")
 include(":features:client:domain")
 include(":features:client:data")
-
-
-
-include(":features:api")
