@@ -119,7 +119,6 @@ fun SpaceForm(
                     label = { Text("Label") },
                     trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = expandedDropdown) },
                     modifier = Modifier
-                        .menuAnchor()
                         .fillMaxWidth(),
                     readOnly = true
                 )
