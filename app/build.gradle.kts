@@ -63,5 +63,6 @@ dependencies {
     implementation(project.dependencies.platform(libs.koin.bom))
     implementation(libs.bundles.koin)
 
+    // C'est par du beau code ça hein ?
     implementation(project(":features:admin:api"))
 }
