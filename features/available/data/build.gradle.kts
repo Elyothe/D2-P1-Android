@@ -24,9 +24,11 @@ android {
 }
 
 dependencies {
+    implementation("com.jakewharton.threetenabp:threetenabp:1.4.0")
 
     implementation(project(":features:available:domain"))
     implementation(project(":core:data"))
+    implementation(libs.androidx.annotation.jvm)
 
 
 }

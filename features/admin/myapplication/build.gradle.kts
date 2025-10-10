@@ -2,24 +2,29 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
-
 }
 
 android {
-    namespace = "com.example.d2_p1"
+    namespace = "com.example.myapplication"
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.d2_p1"
-        minSdk = 29
+        applicationId = "com.example.myapplication"
+        minSdk = 24
         targetSdk = 36
         versionCode = 1
         versionName = "1.0"
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
     compileOptions {
@@ -35,16 +40,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":core:ui"))
-    implementation(project(":features:admin:ui"))
-    implementation(project(":core:ui"))
-    implementation(project(":features:client:ui"))
-    implementation(project(":features:available:ui"))
-    implementation(project(":features:login:ui"))
 
-    implementation("androidx.compose.material3:material3:1.2.0")
-    implementation("androidx.compose.material:material-icons-extended:1.6.0")
-    implementation("androidx.activity:activity-compose:1.8.2")
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -53,18 +49,11 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
-    implementation(libs.bundles.compose.ui)
-    implementation(libs.androidx.navigation.compose)
+    testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(project(":core:data"))
+    androidTestImplementation(platform(libs.androidx.compose.bom))
+    androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
-    implementation("androidx.navigation:navigation-compose:2.7.7")
-
-    // ajout de l'implementation de koin pour injecter les dépendances
-    implementation(project.dependencies.platform(libs.koin.bom))
-    implementation(libs.bundles.koin)
-
-    implementation(project(":features:admin:api"))
-    implementation(project(":features:available:api"))
+    debugImplementation(libs.androidx.compose.ui.test.manifest)
 }

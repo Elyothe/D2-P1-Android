@@ -42,6 +42,7 @@ dependencies {
     implementation(libs.bundles.compose.ui)
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.compose.navigation)
+    implementation(project(":core:data"))
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
