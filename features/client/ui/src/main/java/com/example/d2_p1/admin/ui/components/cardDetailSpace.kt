@@ -1,60 +1,81 @@
-package com.example.d2_p1.admin.ui.components
 
-import android.content.res.Resources
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
+
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import com.example.d2_p1.core.data.models.Space
+import com.example.d2_p1.features.core.ui.R
 
 @Composable
-fun CardDetailSpace(
-    space: Space
-) {
+fun DetailSpaceCard(space: Space) {
     Card(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(8.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+            .padding(16.dp)
+            .fillMaxWidth(),
+        shape = RoundedCornerShape(16.dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
     ) {
         Column(
-            modifier = Modifier.padding(16.dp)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Titre
-            Text(
-                text = space.name,
-                style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Bold
+            // IMAGE DE LA SALLE
+            Image(
+                painter = painterResource(id = R.drawable.default_room),
+                contentDescription = "Photo de la salle",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .height(200.dp)
+                    .clip(RoundedCornerShape(12.dp)),
+                contentScale = ContentScale.Crop
             )
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = "${space.category} • ${space.maxCapacity} places",
+                text = space.name,
+                style = MaterialTheme.typography.headlineSmall
+            )
+            Text(
+                text = "Catégorie : ${space.category}",
+                style = MaterialTheme.typography.bodyMedium
+            )
+            Text(
+                text = "Capacité : ${space.maxCapacity} personnes",
                 style = MaterialTheme.typography.bodyMedium
             )
 
-            Spacer(modifier = Modifier.height(8.dp))
+            Spacer(modifier = Modifier.height(12.dp))
 
-            Text("Ressources :", fontWeight = FontWeight.SemiBold)
-            space.resources.forEach { res ->
-                Text("• $res", style = MaterialTheme.typography.bodySmall)
+            Text(
+                text = "Description :",
+                style = MaterialTheme.typography.titleMedium
+            )
+            Text(
+                text = space.description,
+                style = MaterialTheme.typography.bodyMedium
+            )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+            Text(
+                text = "Ressources :",
+                style = MaterialTheme.typography.titleMedium
+            )
+            space.resources.forEach {
+                Text("- $it", style = MaterialTheme.typography.bodySmall)
             }
-
-            Spacer(modifier = Modifier.height(8.dp))
-
-            // Description
-            Text(space.description, style = MaterialTheme.typography.bodySmall)
         }
     }
 }

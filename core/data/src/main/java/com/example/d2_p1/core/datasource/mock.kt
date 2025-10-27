@@ -907,31 +907,4 @@ object MockData {
             )
         )
     )
-
-    init {
-        var reservationId = 1
-        spaces.forEach { space ->
-            val reservations = List(3) { idx ->
-                val startHour = 8 + idx // 8h, 9h, 10h
-                val startAt = "2025-10-31T%02d:00:00".format(startHour)
-                val endAt = "2025-10-31T%02d:00:00".format(startHour + 1)
-                Reservation(
-                    id = reservationId++,
-                    spaceId = space.id,
-                    userId = users[idx % users.size].id,
-                    attendeesCount = 5 + idx,
-                    startAt = startAt,
-                    endAt = endAt,
-                    status = when (idx) {
-                        0 -> StatusEnum.CONFIRMED
-                        1 -> StatusEnum.PENDING
-                        else -> StatusEnum.CANCELLED
-                    },
-                    space = null, // Pour éviter la récursivité
-                    user = users[idx % users.size]
-                )
-            }
-            space.copy(reservations = reservations)
-        }
-    }
 }

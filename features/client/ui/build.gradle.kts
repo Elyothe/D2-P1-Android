@@ -43,7 +43,6 @@ dependencies {
     implementation(project(":core:ui"))
     implementation(project(":core:domain"))
     implementation(libs.androidx.navigation.runtime.ktx)
-    implementation(libs.androidx.material3)
     implementation(libs.androidx.room.ktx)
 
     androidTestImplementation(libs.androidx.junit)

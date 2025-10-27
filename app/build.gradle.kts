@@ -26,6 +26,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+    //Machine virtuelle Java sur laquelle le code sera compilé
     kotlinOptions {
         jvmTarget = "11"
     }

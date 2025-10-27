@@ -1,5 +1,7 @@
 package com.example.d2_p1.admin.ui.components
 
+import android.content.res.Resources
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
@@ -189,7 +191,8 @@ fun SpaceCard(
         modifier = modifier
             .fillMaxWidth()
             .height(160.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp)
+        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.background)
     ) {
         Box(
             modifier = Modifier.fillMaxSize()
@@ -202,7 +205,7 @@ fun SpaceCard(
             ) {
                 Text(
                     text = spaceName,
-                    fontSize = 16.sp,
+                    fontSize = 21.sp,
                     fontWeight = FontWeight.Bold,
                     color = Color.Black
                 )
@@ -210,13 +213,13 @@ fun SpaceCard(
                 Text(
                     text = spaceType,
                     fontSize = 14.sp,
-                    color = Color.Gray
+                    color = Color.Black
                 )
 
                 Text(
                     text = "$capacity personnes",
                     fontSize = 12.sp,
-                    color = Color.Gray
+                    color = Color.Black
                 )
 
                 if (hasWifi) {
@@ -233,7 +236,7 @@ fun SpaceCard(
                         Text(
                             text = "WiFi",
                             fontSize = 12.sp,
-                            color = Color.Blue
+                            color = Color.Black
                         )
                     }
                 }

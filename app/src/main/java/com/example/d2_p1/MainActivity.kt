@@ -11,7 +11,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.d2_p1.admin.ui.screens.create.CreateSpaceScreen
 import com.example.d2_p1.admin.ui.screens.DetailSpaceScreen
-import com.example.d2_p1.admin.ui.screens.ModifySpaceScreen
+import com.example.d2_p1.admin.ui.screens.EditSpaceScreen
 import com.example.d2_p1.admin.ui.screens.ListSpaceScreen
 import com.example.d2_p1.core.data.models.Route
 import com.example.d2_p1.core.ui.screens.HomeScreen
@@ -43,11 +43,14 @@ class MainActivity : ComponentActivity() {
                     composable(Route.CreateSpaceScreen) {
                         CreateSpaceScreen(navController)
                     }
-                    composable(Route.EditSpaceScreen) {
-                        ModifySpaceScreen(navController)
-                    }
                     composable(Route.LoginScreen){
                         LoginScreen(navController)
+                    }
+                    composable(
+                        route = "${Route.EditSpaceScreen}/{spaceId}"
+                    ) { backStackEntry ->
+                        val spaceId = backStackEntry.arguments?.getString("spaceId") ?: ""
+                        EditSpaceScreen(navController, spaceId)
                     }
                     composable(
                         route = "${Route.DetailSpaceScreen}/{spaceId}"

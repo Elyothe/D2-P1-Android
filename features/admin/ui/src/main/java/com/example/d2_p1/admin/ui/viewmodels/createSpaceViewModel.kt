@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import androidx.compose.runtime.mutableStateOf
-import com.example.d2_p1.admin.domain.SpaceRepository
+import com.example.d2_p1.admin.domain.repositories.SpaceRepository
 import com.example.d2_p1.admin.domain.events.CreateSpaceEvent
 import com.example.d2_p1.admin.domain.states.CreateSpaceState
 import com.example.d2_p1.core.data.models.Space

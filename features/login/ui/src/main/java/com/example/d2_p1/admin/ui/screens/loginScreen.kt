@@ -23,7 +23,7 @@ fun LoginScreen(
 
     LaunchedEffect(state.isSuccess) {
         if (state.isSuccess) {
-            navController.navigate("home_screen") {
+            navController.navigate("listSpace_screen") {
                 popUpTo("login") { inclusive = true }
             }
         }

@@ -28,7 +28,7 @@ fun FloatingButton(
             .clip(RoundedCornerShape(12.dp)),
         onClick = onClick,
         colors = CardDefaults.cardColors(
-            containerColor = MaterialTheme.colorScheme.primary
+            containerColor = MaterialTheme.colorScheme.surface
         ),
         elevation = CardDefaults.cardElevation(
             defaultElevation = 6.dp

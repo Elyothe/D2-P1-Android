@@ -12,7 +12,6 @@ import kotlinx.coroutines.launch
 class DetailSpaceViewModel : ViewModel() {
 
     var state = androidx.compose.runtime.mutableStateOf(DetailSpaceState())
-        private set
 
     fun onEvent(event: DetailSpaceEvent) {
         when (event) {

@@ -100,7 +100,7 @@ fun ListSpaceScreen(
         ) {
             HeaderBarCustom(
                 title = "Espaces Disponibles",
-                showBackButton = true,
+                showBackButton = false,
                 onBackClick = { navController.popBackStack() }
             )
 
@@ -116,7 +116,7 @@ fun ListSpaceScreen(
                 }
             } else {
                 LazyVerticalGrid(
-                    columns = GridCells.Fixed(2),
+                    columns = GridCells.Fixed(1),
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(16.dp),
