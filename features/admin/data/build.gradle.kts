@@ -25,7 +25,8 @@ android {
 
 dependencies {
 
-    //ici qu'il y a aura les implementation pour le bdd local par ex
+    implementation(project(":features:admin:domain"))
+    implementation(project(":core:data"))
 
 
 }

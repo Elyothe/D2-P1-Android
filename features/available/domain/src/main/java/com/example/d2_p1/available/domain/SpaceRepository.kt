@@ -1,0 +1,7 @@
+package com.example.d2_p1.available.domain
+
+import com.example.d2_p1.core.data.models.Space
+
+interface SpaceRepository {
+    suspend fun getSpaces(): List<Space>
+}

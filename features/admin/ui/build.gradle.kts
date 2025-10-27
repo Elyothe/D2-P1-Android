@@ -24,6 +24,7 @@ android {
     buildFeatures {
         compose = true
     }
+
 }
 
 dependencies {
@@ -38,8 +39,21 @@ dependencies {
     implementation(libs.androidx.compose.material3)
     implementation(libs.bundles.compose.ui)
 
+    // Ajout des dépendances vers les modules core
+    implementation(project(":core:data"))
+    implementation(project(":core:domain"))
+    implementation(project(":core:ui"))
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation("androidx.navigation:navigation-compose:2.7.7")
+
+    // ajout de l'implementation de koin pour injecter les dépendances
+    implementation(project.dependencies.platform(libs.koin.bom))
+    implementation(libs.bundles.koin)
+
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     debugImplementation(libs.androidx.compose.ui.tooling)
+
+    implementation(project(":features:admin:domain"))
 }

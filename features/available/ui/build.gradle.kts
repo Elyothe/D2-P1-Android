@@ -1,0 +1,63 @@
+import org.jetbrains.kotlin.commonizer.OptimisticNumberCommonizationEnabledKey.alias
+
+plugins {
+    alias(libs.plugins.android.library)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
+}
+
+android {
+    namespace = "com.example.d2_p1.features.admin.ui"
+    compileSdk = 36
+
+
+    buildTypes {
+        release {
+            isMinifyEnabled = false
+        }
+    }
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+    kotlinOptions {
+        jvmTarget = "11"
+    }
+    buildFeatures {
+        compose = true
+    }
+}
+
+dependencies {
+
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.activity.compose)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.compose.ui)
+    implementation(libs.androidx.compose.ui.graphics)
+    implementation(libs.androidx.compose.ui.tooling.preview)
+    implementation(libs.androidx.compose.material3)
+    implementation(libs.bundles.compose.ui)
+
+    // Ajout des dépendances vers les modules core
+    implementation(project(":core:data"))
+    implementation(project(":core:ui"))
+    implementation(libs.androidx.navigation.runtime.ktx)
+
+    // ajout de l'implementation de koin pour injecter les dépendances
+    implementation(project.dependencies.platform(libs.koin.bom))
+    implementation(libs.bundles.koin)
+    implementation(libs.androidx.material3)
+
+    implementation("com.jakewharton.threetenabp:threetenabp:1.4.0")
+    implementation("androidx.compose.material3:material3:1.2.0")
+    implementation("androidx.compose.material:material-icons-extended:1.6.0")
+    implementation("androidx.activity:activity-compose:1.8.2")
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso.core)
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    debugImplementation(libs.androidx.compose.ui.tooling)
+
+    implementation(project(":features:available:domain"))
+}

@@ -8,6 +8,9 @@ android {
     namespace = "com.example.d2_p1.features.core.ui"
     compileSdk = 36
 
+    defaultConfig {
+        minSdk = 26
+    }
 
     buildTypes {
         release {
@@ -37,9 +40,11 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.bundles.compose.ui)
+    implementation(libs.androidx.navigation.runtime.ktx)
+    implementation(libs.androidx.compose.navigation)
+    implementation(project(":core:data"))
 
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
     debugImplementation(libs.androidx.compose.ui.tooling)
 }
